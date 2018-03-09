@@ -5,37 +5,34 @@ import "../../index.css";
 const Nav = (props) => {
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="nav-link" to="/">Awesome React Auth</Link>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <NavLink exact className="nav-link" to="/">Home</NavLink>
-          </li>
-          <li className="nav-item">
-            {props.userInfo.loggedIn && <NavLink exact className="nav-link" to={`/user/${props.userInfo.currentUser.username}`}>Profile</NavLink>}
-          </li>
-          <li className="nav-item">
-            {props.userInfo.isAdmin && <NavLink exact className="nav-link"  to="/admin">Admin</NavLink>}
-          </li>
-          <li className="nav-item">
-            {!props.userInfo.loggedIn ? <NavLink exact className="nav-link" to="/login">Login</NavLink> : <a  className="nav-link" onClick={props.logout}> Logout</a>}
-          </li>
-          <li className="nav-item">
-            {!props.userInfo.loggedIn && <NavLink exact className="nav-link" to="/signup">Sign Up</NavLink>}
-          </li>
-        </ul>
+    <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div className="container">
+        <a className="navbar-brand js-scroll-trigger" href="#page-top">Activity You</a>
+        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i className="fa fa-bars"></i>
+        </button>
+       
+        <div className="collapse navbar-collapse" id="navbarResponsive">
+          <ul className="navbar-nav text-uppercase ml-auto">
+            <li className="nav-item">
+              <a className="nav-link js-scroll-trigger" href="#contact">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link js-scroll-trigger" href="#contact">Add Event</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link js-scroll-trigger" href="#contact">My Events</a>
+              <li className="nav-item">
+              <a className="nav-link js-scroll-trigger" href="#contact">Profile</a>
+            </li>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
-    // <div classNameName="navColor">
-    //   <Link to="/">Home</Link>
-    //   <Link to="user/profile">Profile</Link>
-    //   {!props.userInfo.loggedIn ? <Link to="/login">Login</Link> : <Link to="/" onClick={props.logout}> Logout</Link>}
-    //   {props.userInfo.isAdmin && <Link to="/admin">Admin</Link> }
-    // </div>
+  
+    
   );
 };
 
