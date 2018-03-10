@@ -3,11 +3,11 @@ body {
   font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.mainNav {
+.addProfileNav {
   background-color: #212529;
 }
 
-.mainNav .navbar-brand {
+.addProfileNav .navbar-brand {
   color: #fed136;
   font-weight: 400;
   font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
@@ -15,7 +15,7 @@ body {
 
 
 
-.mainNav .navbar-nav .nav-item .nav-link {
+.addProfileNav .navbar-nav .nav-item .nav-link {
   font-size: 90%;
   font-weight: 400;
   padding: 10px;

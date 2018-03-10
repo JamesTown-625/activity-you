@@ -10,7 +10,7 @@ class Profile extends Component {
   render() {
     return (
         <div>
-          <div className="mainNav">    
+          <div className="addProfileNav">    
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
               <div className="container">
                 <a className="navbar-brand js-scroll-trigger" href="#page-top">Activity You</a>
