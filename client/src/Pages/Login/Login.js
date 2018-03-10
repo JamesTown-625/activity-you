@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from '../../components/Input';
+import Nav from '../../components/Nav';
 
 class Login extends Component {
     state = {
@@ -16,8 +17,10 @@ class Login extends Component {
 
 
   render() {
+  
     return (
       <div>
+      <Nav />
         <Input placeholder="username" name="username" value={this.state.username} onChange={this.handleChange}/>
         <br />
         <Input placeholder="password" name="password" value={this.state.password} onChange={this.handleChange}/>

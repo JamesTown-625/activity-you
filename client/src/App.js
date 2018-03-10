@@ -1,13 +1,39 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
-import Nav from "./components/Nav";
 import Login from "./Pages/Login";
+import Landing from "./Pages/Landing";
 import Home from "./Pages/Home";
+import AddEvent from "./Pages/AddEvent";
 import Admin from "./Pages/Admin";
 import Signup from "./Pages/Signup";
 import Profile from "./Pages/Profile";
 import axios from 'axios';
 import './App.css';
+
+// _____________________________________test data for populating page_________________________________
+const events = [{
+  title: "Rock Concert at Red Cliffs",
+  date: "Mar 21",
+  info: "Come enjoy the awesome rock Concert at Red Cliffs",
+  category: "Tech",
+  image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
+},
+{
+  title: "Rock Concert at The Depot",
+  date: "Mar 29",
+  info: "Come enjoy the awesome rock Concert at The Depot",
+  category: "Tech",
+  image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
+},
+{
+  title: "Rock Concert at Salt Palace",
+  date: "Apr 14",
+  info: "Come enjoy the awesome rock Concert at Salt Palace",
+  category: "Tech",
+  image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
+}]
+// _____________________________________end test data for populating page_________________________________
+
 
 class App extends Component {
  state = {
@@ -31,7 +57,7 @@ class App extends Component {
 
   checkLogin = () => {
     axios.get("/api/session").then((res) => {
-      console.log(this.state, "this is checkloging state")
+      console.log(this.state, "this is checklogin state")
       console.log(res)
       this.setState({ user: res.data});
       console.log(this.state)
@@ -59,14 +85,17 @@ class App extends Component {
       this.setState({ user: res.data });
     })
   }
-  
+  // <Nav userInfo={this.state.user} logout={this.userLogOut}/>
   render() {
     return (
        <Router>
         <div>
-          <Nav userInfo={this.state.user} logout={this.userLogOut}/>
+          
           <Switch>  
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/home" component={Home}/>
+            <Route exact path="/" component={Landing}/>
+            <Route exact path="/addevent" component={AddEvent}/>
+            <Route exact path="/profile" component={Profile}/>
             <Route path="/user/:username" render={(props) => {
                return <Profile {...props} />
             }} />

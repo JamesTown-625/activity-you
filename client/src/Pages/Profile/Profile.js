@@ -1,70 +1,173 @@
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import Update from '../../components/Update';
-import axios from 'axios';
-
+import React, { Component } from "react";
+// import DeleteBtn from "../../components/DeleteBtn";
+// import Jumbotron from "../../components/Jumbotron";
+// import API from "../../utils/API";
+// import { Link } from "react-router-dom";
+// import { Col, Row, Container } from "../../components/Grid";
+// import { List, ListItem } from "../../components/List";
+// import { Input, TextArea, FormBtn } from "../../components/Form";
+// import backgroundimg from "../../img/02-profile.jpg";
 class Profile extends Component {
-
-    state = {
-      tempUser: {},
-      user: {
-        loggedIn: false,
-        isAdmin: false,
-        currentUser: {
-          id: null,
-          name: '',
-          username: '',
-          email: '',
-          profilePic: null
-        }
-      }
-    }
-
-  checkLogin = () => {
-    axios.get("/api/session").then((res) => {
-      console.log(this.state, "this is checkloging state")
-      console.log(res)
-      this.setState({user: res.data});
-      console.log(this.state)
-    })
-  }
-    // componentWillMount() {
-    //   this.props.checkLogin()
-    // }
-    
-    componentWillMount() {
-      console.log(this.props, "props from profile")
-      console.log(this.state, "props from state")
-      this.checkLogin()
-      axios.get(`/api/profile/${this.props.match.params.username}`).then((response) => {
-      console.log(response);
-      this.setState({
-        tempUser: response.data
-      });
-        console.log(this.props, "props from profile")
-        console.log(this.state, "props from state")
-      })
-    }
-    cardStyle = { width: "18rem"}
-    
+  state = {
+    book: {}
+  };
+  // Add code to get the book with an _id equal to the id in the route param
+  // e.g. http://localhost:3000/books/:id
+  // The book id for this route can be accessed using this.props.match.params.id
   render() {
     return (
-      <div>
-        <div className="card" style={this.cardStyle}>
-          <img className="card-img-top" src={this.state.tempUser.profilePic} alt="" />
-            <div className="card-body">
-              <h5 className="card-title">{this.state.tempUser.username}</h5>
-              <p className="card-text">Your Users Comments</p>
-            {this.state.user.currentUser.username === this.state.tempUser.username &&
-            <Link 
-            to={`/user/${this.props.match.params.username}/update`} 
-            className="btn btn-primary">Update</Link>}
-            <Route path="/user/:username/update" component={Update} />
+        <div>
+          <div className="mainNav">    
+            <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
+              <div className="container">
+                <a className="navbar-brand js-scroll-trigger" href="#page-top">Activity You</a>
+                <div className="collapse navbar-collapse navbarResponsive">
+                  <ul className="navbar-nav text-uppercase ml-auto">
+                    <li className="nav-item">
+                      <a className="nav-link js-scroll-trigger" href="addEvent.html">Add Event</a>
+                    </li> 
+                    <br /> 
+                    <li className="nav-item">
+                      <a className="nav-link js-scroll-trigger" href="index.html">Home</a>
+                    </li>
+                    <br />
+                    <li className="nav-item">
+                      <a className="nav-link js-scroll-trigger" href="profile.html">Profile</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <header className="profile">
+            <div className="container">
+              <div className="jumbotron jumbo">
+                <div className="row">
+                 
+                  <div className="username">
+                    <img src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://s3.amazonaws.com/arc-authors/washpost/e2838923-cb36-49c3-976f-8a9cc279583b.png&w=180&h=180&t=20170517a" className="rounded-circle img-fluid userpicture" alt="Cinque Terre" />
+                    <div>
+                      <h4 data-toggle="modal" data-target="#myModal" title="Edit">
+                        Samantha Jane Doe
+                        <br />
+                        Samanthadoe@gmail.com
+                      </h4>
+                    </div>
+                    {/* The Modal */}
+                    <div className="modal fade myModal">
+                      <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                          {/* Modal Header */}
+                          <div className="modal-header">
+                            <h4 className="modal-title">Edit User Info</h4>
+                            <button type="button" className="close" data-dismiss="modal">×</button>
+                          </div>
+                          {/* Modal body */}
+                          <div className="modal-body">
+                            <form action="/action_page.php">
+                              <div className="form-group">
+                                <label htmlFor="name">Name:</label>
+                                <input type="name" className="form-control name" />
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="email">Email:</label>
+                                <input type="email" className="form-control email" />
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="pwd">Password:</label>
+                                <input type="password" className="form-control password" />
+                              </div>
+                              <div className="form-group">
+                                {/* Button to access locals picture files */} 
+                                <label className="file-upload-container" htmlFor="file-upload">
+                                  <img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/2000px-Picture_icon_BLACK.svg.png" className="img-preview" style={{hight: 20, width: 20}} />
+                                  <input className="file-upload" type="file" style={{display: 'none'}} />
+                                  Upload an Image
+                                </label>
+                                {/* ===============================*/}
+                                <input placeholder="Upload a Picture of your Event" type="text" className="form-control picture" />
+                              </div>
+                              <br />
+                              <button type="submit" className="btn btn-warning">Submit</button>
+                            </form>
+                          </div>
+                          {/* Modal footer */}
+                          <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>   
+                  </div>        
+                </div>
+                <div className="row"><p /></div>
+                <div className="row"><p /></div>
+                <div className="row"><p /></div>
+                <div className="row"><p /></div>
+                <div className="row"><p /></div>
+                <div className="row"><p /></div>
+                <div className="row"><p /></div>            
+              </div>
             </div>
+          </header>    
+          <div className="interests">
+            <div className="container">
+              <div className="jumbotron jumbo">
+                <h1>What Type of Events are you Interested in?</h1>
+                <div className="row">
+                  <div className="col-md-6 options">
+                    <div className="radio">
+                      <label><input type="radio" name="outdoors" defaultValue="outdoor" />Outdoors</label>
+                    </div>
+                    <div className="radio">
+                      <label><input type="radio" name="art" defaultValue="art" />Art</label>
+                    </div>
+                    <div className="radio">
+                      <label><input type="radio" name="music" defaultValue="music" />Music</label>
+                    </div>
+                    <div className="radio">
+                      <label><input type="radio" name="fitness" defaultValue="fitness" />Fitness</label>
+                    </div>    
+                    <div className="radio">
+                      <label><input type="radio" name="game" defaultValue="gameScifi" />Game/SciFi</label>
+                    </div>                    
+                    <div className="radio">
+                      <label><input type="radio" name="education" defaultValue="education" />Education</label>
+                    </div>
+                  </div>
+                  <div className="col-md-6 options">     
+                    <div className="radio">
+                      <label><input type="radio" name="pets" defaultValue="pet" />Pets</label>
+                    </div>
+                    <div className="radio">
+                      <label><input type="radio" name="culture" defaultValue="culture" />Culture</label>
+                    </div>                    
+                    <div className="radio">
+                      <label><input type="radio" name="business" defaultValue="business" />Business</label>
+                    </div>     
+                    <div className="radio">
+                      <label><input type="radio" name="family" defaultValue="family" />Family</label>
+                    </div>                                    
+                    <div className="radio">
+                      <label><input type="radio" name="social" defaultValue="social" />Social</label>
+                    </div> 
+                    <div className="radio">
+                      <label><input type="radio" name="food" defaultValue="foodDrink" />Food/Drink</label>
+                    </div>                     
+                  </div>
+                </div>                   
+                <div className="row" style={{paddingTop: 20}}>
+                  <div className="col-md-5" />
+                  <div className="col-md-2">
+                    <button type="button" className="btn btn-warning disabled">Save your Interests</button> 
+                  </div>
+                  <div className="col-md-5" />                
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
     );
   }
 }
-
 export default Profile;
