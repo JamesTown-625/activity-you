@@ -1,22 +1,37 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../../components/DeleteBtn";
-// import Jumbotron from "../../components/Jumbotron";
-// import API from "../../utils/API";
-// import { Link } from "react-router-dom";
-// import { Col, Row, Container } from "../../components/Grid";
-// import { List, ListItem } from "../../components/List";
-// import { Input, TextArea, FormBtn } from "../../components/Form";
+
 class AddEvent extends Component {
   state = {
     book: {}
   };
-  // Add code to get the book with an _id equal to the id in the route param
-  // e.g. http://localhost:3000/books/:id
-  // The book id for this route can be accessed using this.props.match.params.id
+
   render() {
     return (
+      <div>
+    <div className="mainNav">    
+      <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
         <div className="container">
-          <div className="jumbotron" id="jumbo">
+          <a className="navbar-brand js-scroll-trigger" href="#page-top">Activity You</a>
+          <div className="collapse navbar-collapse navbarResponsive">
+            <ul className="navbar-nav text-uppercase ml-auto">
+              <li className="nav-item">
+                <a className="nav-link js-scroll-trigger" href="/addevent">Add Event</a>
+              </li> 
+              <br /> 
+              <li className="nav-item">
+                <a className="nav-link js-scroll-trigger" href="/home">Home</a>
+              </li>
+              <br />
+              <li className="nav-item">
+                <a className="nav-link js-scroll-trigger" href="/profile">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+        <div className="container">
+          <div className="jumbotron jumbo">
             <h1>Add an Event</h1>
             <form action="/action_page.php" id="addEvent">
               <div className="form-group">
@@ -99,6 +114,45 @@ class AddEvent extends Component {
             </form>
           </div>
         </div>
+        <footer>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <span className="copyright">Copyright &copy; 2018</span>
+          </div>
+          <div className="col-md-4">
+            <ul className="list-inline social-buttons">
+              <li className="list-inline-item">
+                <a href="#">
+                  <i className="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="#">
+                  <i className="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="#">
+                  <i className="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          	<div className="col-md-4">
+            <ul className="list-inline quicklinks">
+              <li className="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li className="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+      </div>  
     );
   }
 }
