@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, NavLink } from "react-router-dom";
-import "../../index.css";
+// import "../../../public/index.css";
 
 const Nav = (props) => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div className="container">
-        <a className="navbar-brand js-scroll-trigger" href="#page-top">Activity You</a>
+        <a className="navbar-brand js-scroll-trigger" href="#page-top">Socialight</a>
         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i className="fa fa-bars"></i>
@@ -23,10 +23,14 @@ const Nav = (props) => {
             </li>
             <li className="nav-item">
               <a className="nav-link js-scroll-trigger" href="#contact">My Events</a>
-              <li className="nav-item">
+            </li>
+            <li className="nav-item">
               <a className="nav-link js-scroll-trigger" href="#contact">Profile</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link js-scroll-trigger" href="#contact">Sign Up</a>
             </li>
+
           </ul>
         </div>
       </div>
