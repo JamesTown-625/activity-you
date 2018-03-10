@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Nav from '../../components/Nav';
+import LandingNav from '../../components/LandingNav';
+import Footer from '../../components/Footer';
 // import DeleteBtn from "../../components/DeleteBtn";
 // import Jumbotron from "../../components/Jumbotron";
 // import API from "../../utils/API";
@@ -17,7 +18,36 @@ class Landing extends Component {
   render() {
     return (
         <div>
-        <Nav/>
+        <LandingNav/>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    
         <header className="masthead">
           <div className="container">
             <div className="intro-text">
@@ -62,40 +92,14 @@ class Landing extends Component {
                 <p className="text-muted">You want to be notified when your favorite band is coming to town? Rock on! We've got you covered. Feel like a quick positive nudge to get outside for some yoga in the park? Well, Namaste. We are totally one with that zen stuff too. </p>
               </div>
               <div className="col-md-12 text-center" data-toggle="modal" data-target="#signUpModal" id="navSignUp">
-                <a className="btn btn-success btn-xl text-uppercase js-scroll-trigger">Sign Me Up!</a>
+                <button className="btn btn-success btn-xl text-uppercase js-scroll-trigger">Sign Me Up!</button>
               </div>
             </div>
           </div>
         </section>
         {/* Footer */}
-        <footer>
-          <div className="container">
-            <div className="row">
-              <div className="col-md-4">
-                <span className="copyright">Copyright © 2018</span>
-              </div>
-              <div className="col-md-4">
-                <ul className="list-inline social-buttons">
-                  <li className="list-inline-item">
-                    <a >
-                      <i className="fa fa-twitter" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a>
-                      <i className="fa fa-facebook" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a>
-                      <i className="fa fa-linkedin" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
+          
         {/* Modals */}
         {/* Modal Login */}
         <div className="modal fade" id="loginModal">
