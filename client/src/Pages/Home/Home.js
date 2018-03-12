@@ -1,15 +1,36 @@
 import React from 'react';
-
 import Carousel from '../../components/Carousel';
+import HomeNav from './HomeNav.js';
+import CategoryHeader from '../../components/CategoryHeader';
+import Footer from '../../components/Footer';
+import Slider from 'react-slick';
+import './Home.css';
+
 const Home = (props) => {
 
+   var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+
+
   return (
-    <div className="jumbotron">
-      <h1 className="display-4"></h1>
-      <p className="lead"></p>
-      <hr className="my-4" />
-      <Carousel title={"Practice text"} />
-      
+    <div>
+    	<div>
+      		<HomeNav/>
+      	</div>
+      	<br/>
+      	<br/>
+      	<br/>
+      	<br/>
+     <CategoryHeader/>
+     <Carousel/>
+     <br/>
+    
+     <Footer/>
     </div>
   );
 };
