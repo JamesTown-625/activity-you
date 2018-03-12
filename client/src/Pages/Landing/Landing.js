@@ -51,7 +51,7 @@ class Landing extends Component {
         <header className="masthead">
           <div className="container">
             <div className="intro-text">
-              <div className="intro-lead-in">Welcome to Socialite!</div>
+              <div className="intro-lead-in">Welcome to Socialight!</div>
               <div className="intro-heading text-uppercase">Where your next activity finds you!</div>
               <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
             </div>
