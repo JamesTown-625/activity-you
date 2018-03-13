@@ -9,7 +9,7 @@ const EventCard = (props) => (
             <div className="view view-first" >
                     
                 <div className="main">
-                  <img src="../../../public/img/rockconcert.png"/>
+                  <img alt=" " src="../../../public/img/rockconcert.png"/>
                     <div className="mask">
                         <h2>Date</h2>
                         <p>Title</p>
