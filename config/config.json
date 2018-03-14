@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "B1gfatfun",
-    "database": "Users",
+    "password": "Tatonka_767",
+    "database": "final_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

@@ -1,37 +1,31 @@
 import React, { Component } from "react";
+import Footer from '../../components/Footer';
+// import { Link } from "react-router-dom";
 
 class AddEvent extends Component {
   state = {
-    book: {}
+    interests: {
+      id: "",
+      outdoor: "",
+      art: "",
+      music: "",
+      fitness: "",
+      gameSciFi: "",
+      education: "",
+      pet: "",
+      culture: "",
+      business: "",
+      family: "",
+      social: "",
+      foodDrink: "",
+    }
   };
+
 
   render() {
     return (
-    <div>
-    <div className="addProfileNav">    
-      <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
         <div className="container">
-          <a className="navbar-brand js-scroll-trigger" href="/">Socialight</a>
-          <div className="collapse navbar-collapse navbarResponsive">
-            <ul className="navbar-nav text-uppercase ml-auto">
-              <li className="nav-item">
-                <a className="nav-link js-scroll-trigger" href="/addevent">Add Event</a>
-              </li> 
-              <br /> 
-              <li className="nav-item">
-                <a className="nav-link js-scroll-trigger" href="/home">Home</a>
-              </li>
-              <br />
-              <li className="nav-item">
-                <a className="nav-link js-scroll-trigger" href="/profile">Profile</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-        <div className="container">
-          <div className="jumbotron jumbo">
+          <div className="jumbotron" id="jumbo">
             <h1>Add an Event</h1>
             <form action="/action_page.php" id="addEvent">
               <div className="form-group">
@@ -42,7 +36,7 @@ class AddEvent extends Component {
                 <label htmlFor="list">Category:</label>
                 <select className="form-control" id="category">
                   <option value="placeholder" />
-                  <option value="outDoor">Outdoor</option>
+                  <option value="outdoor">Outdoor</option>
                   <option value="art">Art</option>
                   <option value="music">Music</option>
                   <option value="family">Family</option>
@@ -114,47 +108,7 @@ class AddEvent extends Component {
             </form>
           </div>
         </div>
-        <footer>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-            <span className="copyright">Copyright &copy; 2018</span>
-          </div>
-          <div className="col-md-4">
-            <ul className="list-inline social-buttons">
-              <li className="list-inline-item">
-                <a>
-                  <i className="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a>
-                  <i className="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-
-                <a>
-                  <i className="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          	<div className="col-md-4">
-            <ul className="list-inline quicklinks">
-              <li className="list-inline-item">
-
-                <a>Privacy Policy</a>
-              </li>
-              <li className="list-inline-item">
-                <a >Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-      </div>  
+      <Footer />
     );
   }
 }

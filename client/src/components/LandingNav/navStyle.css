@@ -5,6 +5,10 @@
   position: relative;
 }
 
+.nav-link {
+  cursor: pointer;
+}
+
 .mainNav .navbar-brand{
   color: #fed136;
   font-weight: 400;

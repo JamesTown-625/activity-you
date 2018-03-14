@@ -22,35 +22,7 @@ handleChange = (event) => {
     return (
         <div>
         <LandingNav/>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    
+        
         <header className="masthead">
           <div className="container">
             <div className="intro-text">
@@ -61,7 +33,7 @@ handleChange = (event) => {
           </div>
         </header> 
         {/* Services */}
-        <section id="services">
+        <section className="services">
           <div className="container">
             <div className="row">
               <div className="col-lg-12 text-center">

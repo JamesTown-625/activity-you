@@ -49,12 +49,10 @@ handleChange = (event) => {
                   <div className="username">
                     <img src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://s3.amazonaws.com/arc-authors/washpost/e2838923-cb36-49c3-976f-8a9cc279583b.png&w=180&h=180&t=20170517a" className="rounded-circle img-fluid userpicture" alt="Cinque Terre" />
                     <div>
-                      <h4 data-toggle="modal" name= data-target=".myModal" title="Edit">
-                        
-                        <br />
-                        Samanthadoe@gmail.com
-                      </h4>
-                    </div>
+                      <h4>{this.state.fullName}</h4>
+                      <h4>{this.state.email}</h4>
+                      <button data-toggle="modal" data-target=".myModal" title="Edit">Update Profile</button>
+                    </div> 
                     {/* The Modal */}
                     <div className="modal fade myModal">
                       <div className="modal-dialog modal-dialog-centered">

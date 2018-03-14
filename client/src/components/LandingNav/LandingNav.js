@@ -17,10 +17,10 @@ const LandingNav = (props) => {
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav text-uppercase ml-auto">
             <li className="nav-item">
-              <a className="nav-link js-scroll-trigger" data-toggle="modal" data-target="/login">Login</a>
+              <a className="nav-link js-scroll-trigger" data-toggle="modal" data-target="#loginModal" id="navLogin">Login</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link js-scroll-trigger" data-toggle="modal" data-target="/">Sign Up</a>
+              <a className="nav-link js-scroll-trigger" data-toggle="modal" data-target="#signUpModal" id="navSignUp">Sign Up</a>
             </li>
 
           </ul>

@@ -4,48 +4,20 @@ import Login from "./Pages/Login";
 import Landing from "./Pages/Landing";
 import Home from "./Pages/Home";
 import AddEvent from "./Pages/AddEvent";
-import Admin from "./Pages/Admin";
 import Signup from "./Pages/Signup";
 import Profile from "./Pages/Profile";
 import axios from 'axios';
 import './App.css';
 
-// _____________________________________test data for populating page_________________________________
-// const events = [{
-//   title: "Rock Concert at Red Cliffs",
-//   date: "Mar 21",
-//   info: "Come enjoy the awesome rock Concert at Red Cliffs",
-//   category: "Tech",
-//   image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
-// },
-// {
-//   title: "Rock Concert at The Depot",
-//   date: "Mar 29",
-//   info: "Come enjoy the awesome rock Concert at The Depot",
-//   category: "Tech",
-//   image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
-// },
-// {
-//   title: "Rock Concert at Salt Palace",
-//   date: "Apr 14",
-//   info: "Come enjoy the awesome rock Concert at Salt Palace",
-//   category: "Tech",
-//   image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
-// }]
-// _____________________________________end test data for populating page_________________________________
-
-
 class App extends Component {
  state = {
     user: {
       loggedIn: false,
-      isAdmin: false,
       currentUser: {
         id: null,
-        name: '',
-        username: '',
+        fullName: '',
         email: '',
-        profilePic: null
+        picture: null
       }
     }
   }
@@ -71,6 +43,7 @@ class App extends Component {
       this.checkLogin()
     })
   }
+
   userDidSignup = (userData) => {
     console.log(userData)
     axios.post("/api/signUp", userData).then((res) => {
@@ -94,19 +67,21 @@ class App extends Component {
       this.setState({ user: res.data });
     })
   }
-  // <Nav userInfo={this.state.user} logout={this.userLogOut}/>
+  
   render() {
     return (
-       <Router>
+      <Router>
         <div>
           
           <Switch>  
             <Route exact path="/home" component={Home}/>
-            ///// <Route exact path="/" render={() => (
+            <Route exact path="/" render={() => (
             <Landing handleLogin={this.userDidLogin} handleSignup={this.userDidSignup} />
             )} />
-            <Route exact path="/profile" render={() => (
-            <Profile handleUpdate={this.userDidUpdate} />
+            <Route exact path="/profile" render={(props) => {
+              return <Profile {...props} />
+            }} />
+            <Profile  handleUpdate={this.userDidUpdate} />
             )} />
             <Route exact path="/addevent" component={AddEvent}/>
             <Route exact path="/profile" component={Profile}/>
@@ -114,18 +89,6 @@ class App extends Component {
                return <Profile {...props} />
             }} />
 
-            {/* 
-            if you want to lock down user profile route to only show if they are logged in
-            comment out the route above and uncomment the code below on lines 71
-             */}
-            {/* <Route path="/user/:username" render={(props) => {
-              console.log(this.state.user.LoggedIn, "this is in path for /profiles")
-              return this.state.user.loggedIn ? (
-                <Profile {...props}/> 
-              ) : (
-                  <Redirect to="/login"/>
-                )
-            }} /> */}
             <Route exact path="/logout" render={() => (
               <button onClick={this.userLogOut}> logOut</button>
             )} />
@@ -138,18 +101,10 @@ class App extends Component {
             <Route exact path="/logout" render={() => (
               <button onClick={this.userLogOut}> logOut</button>
             )} />
-            <Route exact path="/admin" render={(props) => {
-              console.log(props, "this is match")
-              console.log(this.state.user.isAdmin, "this is in path for /profiles")
-              return this.state.user.loggedIn ? (
-                <Admin {...props}/>
-              ) : (
-                  <Redirect to="/" />
-                )
-            }} />
+
           </Switch>
         </div>
-       </Router>
+      </Router>
     );
   }
 }
