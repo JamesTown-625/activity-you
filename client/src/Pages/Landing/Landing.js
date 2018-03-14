@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import LandingNav from '../../components/LandingNav';
 import Footer from '../../components/Footer';
-// import DeleteBtn from "../../components/DeleteBtn";
-// import Jumbotron from "../../components/Jumbotron";
-// import API from "../../utils/API";
 // import { Link } from "react-router-dom";
-// import { Col, Row, Container } from "../../components/Grid";
-// import { List, ListItem } from "../../components/List";
-// import { Input, TextArea, FormBtn } from "../../components/Form";
+
+
 class Landing extends Component {
   state = {
-    book: {}
+    fullName: "",
+    email: "",
+    password: "",
+    picture: "",
   };
-  // Add code to get the book with an _id equal to the id in the route param
-  // e.g. http://localhost:3000/books/:id
+
+handleChange = (event) => {
+  const {name, value} = event.target;
+  this.setState({[name]: value})
+}
+
   // The book id for this route can be accessed using this.props.match.params.id
   render() {
     return (
@@ -56,7 +59,7 @@ class Landing extends Component {
               <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
             </div>
           </div>
-        </header>
+        </header> 
         {/* Services */}
         <section id="services">
           <div className="container">
@@ -114,14 +117,14 @@ class Landing extends Component {
                 <form action="/action_page.php">
                   <div className="form-group">
                     <label htmlFor="name">Name:</label>
-                    <input type="name" className="form-control" id="name" />
+                    <input className="form-control" name="fullName" value={this.state.fullName} onChange={this.handleChange} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="pwd">Password:</label>
-                    <input type="password" className="form-control" id="email" />
+                    <input className="form-control" name="password" value={this.state.password} onChange={this.handleChange} />
                   </div>
                   <br />
-                  <button type="submit" className="btn btn-warning">Log In</button>
+                  <button type="button" onClick={()=> {this.props.handleLogin(this.state)}} className="btn btn-warning">Log In</button>
                 </form>
               </div>
               {/* Modal footer */}
@@ -144,15 +147,15 @@ class Landing extends Component {
                 <form action="/action_page.php">
                   <div className="form-group">
                     <label htmlFor="name">Name:</label>
-                    <input type="name" className="form-control" id="name" />
+                    <input className="form-control" name="fullName" value={this.state.fullName} onChange={this.handleChange}/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="email">Email:</label>
-                    <input type="email" className="form-control" id="email" />
+                    <input className="form-control" name="email" value={this.state.email} onChange={this.handleChange}/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="pwd">Password:</label>
-                    <input type="password" className="form-control" id="email" />
+                    <input className="form-control" name="password" value={this.state.password} onChange={this.handleChange}/>
                   </div>
                   <div className="form-group">
                     {/* Button to access locals picture files */} 
@@ -162,10 +165,10 @@ class Landing extends Component {
                       Upload an Image
                     </label>
                     {/* ===============================*/}
-                    <input placeholder="Upload a Picture of your Event" type="text" className="form-control" id="picture" />
+                    <input placeholder="Upload a Picture of your Event" type="text" className="form-control" name="picture" value={this.state.picture} onChange={this.handleChange}/>
                   </div>
                   <br />
-                  <button type="submit" className="btn btn-warning">Submit</button>
+                  <button type="button" onClick={()=> {this.props.handleSignup(this.state)}} className="btn btn-warning">Submit</button>
                 </form>
               </div>
               {/* Modal footer */}
@@ -175,10 +178,7 @@ class Landing extends Component {
             </div> 
           </div> 
         </div>
-        {/* Bootstrap core JavaScript */}
-        {/* Plugin JavaScript */}
-        {/* Contact form JavaScript */}
-        {/* Custom scripts for this template */}
+
       </div>
     );
   }

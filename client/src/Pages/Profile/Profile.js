@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import backgroundimg from "../../img/02-profile.jpg";
-
+import Footer from '../../components/Footer';
 
 class Profile extends Component {
   state = {
-    User: {}
+    fullName: "",
+    email: "",
+    password: "",
+    picture: "",
   };
+
+handleChange = (event) => {
+  const {name, value} = event.target;
+  this.setState({[name]: value})
+}
 
   render() {
     return (
@@ -13,6 +21,7 @@ class Profile extends Component {
           <div className="addProfileNav">    
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
               <div className="container">
+
                 <a className="navbar-brand js-scroll-trigger" href="#page-top">Socialight</a>
                 <div className="collapse navbar-collapse navbarResponsive">
                   <ul className="navbar-nav text-uppercase ml-auto">
@@ -40,8 +49,8 @@ class Profile extends Component {
                   <div className="username">
                     <img src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://s3.amazonaws.com/arc-authors/washpost/e2838923-cb36-49c3-976f-8a9cc279583b.png&w=180&h=180&t=20170517a" className="rounded-circle img-fluid userpicture" alt="Cinque Terre" />
                     <div>
-                      <h4 data-toggle="modal" data-target=".myModal" title="Edit">
-                        Samantha Jane Doe
+                      <h4 data-toggle="modal" name= data-target=".myModal" title="Edit">
+                        
                         <br />
                         Samanthadoe@gmail.com
                       </h4>
@@ -60,15 +69,15 @@ class Profile extends Component {
                             <form action="/action_page.php">
                               <div className="form-group">
                                 <label htmlFor="name">Name:</label>
-                                <input type="name" className="form-control name" />
+                                <input type="name" className="form-control" name="fullName" value={this.state.fullName} onChange={this.handleChange} />
                               </div>
                               <div className="form-group">
                                 <label htmlFor="email">Email:</label>
-                                <input type="email" className="form-control email" />
+                                <input className="form-control" name="email" value={this.state.email} onChange={this.handleChange} />
                               </div>
                               <div className="form-group">
                                 <label htmlFor="pwd">Password:</label>
-                                <input type="password" className="form-control password" />
+                                <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.handleChange} />
                               </div>
                               <div className="form-group">
                                 {/* Button to access locals picture files */} 
@@ -78,10 +87,10 @@ class Profile extends Component {
                                   Upload an Image
                                 </label>
                                 {/* ===============================*/}
-                                <input placeholder="Upload a Picture of your Event" type="text" className="form-control picture" />
+                                <input placeholder="Upload a Picture of your Event" type="text" className="form-control" name="picture" value={this.state.picture} onChange={this.handleChange} />
                               </div>
                               <br />
-                              <button type="submit" className="btn btn-warning">Submit</button>
+                              <button type="button" onClick={()=> {this.props.handleUpdate(this.state)}} className="btn btn-warning">Submit</button>
                             </form>
                           </div>
                           {/* Modal footer */}
@@ -162,34 +171,8 @@ class Profile extends Component {
               </div>
             </div>
           </div>
-          <footer>
-          <div className="container">
-            <div className="row">
-              <div className="col-md-4">
-                <span className="copyright">Copyright © 2018</span>
-              </div>
-              <div className="col-md-4">
-                <ul className="list-inline social-buttons">
-                  <li className="list-inline-item">
-                    <a href="#">
-                      <i className="fa fa-twitter" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#">
-                      <i className="fa fa-facebook" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#">
-                      <i className="fa fa-linkedin" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
+          <Footer />
+
         </div>
     );
   }

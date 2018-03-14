@@ -1,16 +1,9 @@
 module.exports = function (sequelize, DataTypes) {
   var Users = sequelize.define("users", {
-    name: {
+    fullName: {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
     },
     email: {
       type: DataTypes.TEXT,
@@ -22,16 +15,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     },
-    profilePic: {
+    picture: {
       type: DataTypes.TEXT,
       allowNull: true,
       len: [1]
     },
-    isAdmin: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-      len: [1]
-    }
   });
 
   //there are no assosiations yet so i commented this out

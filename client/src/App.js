@@ -11,27 +11,27 @@ import axios from 'axios';
 import './App.css';
 
 // _____________________________________test data for populating page_________________________________
-const events = [{
-  title: "Rock Concert at Red Cliffs",
-  date: "Mar 21",
-  info: "Come enjoy the awesome rock Concert at Red Cliffs",
-  category: "Tech",
-  image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
-},
-{
-  title: "Rock Concert at The Depot",
-  date: "Mar 29",
-  info: "Come enjoy the awesome rock Concert at The Depot",
-  category: "Tech",
-  image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
-},
-{
-  title: "Rock Concert at Salt Palace",
-  date: "Apr 14",
-  info: "Come enjoy the awesome rock Concert at Salt Palace",
-  category: "Tech",
-  image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
-}]
+// const events = [{
+//   title: "Rock Concert at Red Cliffs",
+//   date: "Mar 21",
+//   info: "Come enjoy the awesome rock Concert at Red Cliffs",
+//   category: "Tech",
+//   image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
+// },
+// {
+//   title: "Rock Concert at The Depot",
+//   date: "Mar 29",
+//   info: "Come enjoy the awesome rock Concert at The Depot",
+//   category: "Tech",
+//   image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
+// },
+// {
+//   title: "Rock Concert at Salt Palace",
+//   date: "Apr 14",
+//   info: "Come enjoy the awesome rock Concert at Salt Palace",
+//   category: "Tech",
+//   image: "http://projectrevolver.org/wp-content/uploads/2013/04/80sconcert1.jpg"
+// }]
 // _____________________________________end test data for populating page_________________________________
 
 
@@ -74,6 +74,15 @@ class App extends Component {
   userDidSignup = (userData) => {
     console.log(userData)
     axios.post("/api/signUp", userData).then((res) => {
+      window.location.href = '/profile';
+      console.log(res)
+      this.checkLogin()
+    })
+  }
+
+  userDidUpdate = (userData) => {
+    console.log(userData)
+    axios.post("/api/update", userData).then((res) => {
       console.log(res)
       this.checkLogin()
     })
@@ -93,7 +102,12 @@ class App extends Component {
           
           <Switch>  
             <Route exact path="/home" component={Home}/>
-            <Route exact path="/" component={Landing}/>
+            ///// <Route exact path="/" render={() => (
+            <Landing handleLogin={this.userDidLogin} handleSignup={this.userDidSignup} />
+            )} />
+            <Route exact path="/profile" render={() => (
+            <Profile handleUpdate={this.userDidUpdate} />
+            )} />
             <Route exact path="/addevent" component={AddEvent}/>
             <Route exact path="/profile" component={Profile}/>
             <Route path="/user/:username" render={(props) => {

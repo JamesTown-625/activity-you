@@ -16,7 +16,7 @@ module.exports = function (app){
     //using our users model to query our MySQL database for user info where ther username equals the username we passed in from the front end
     db.users.findOne({
       where: {
-        username: req.body.username
+        email: req.body.email
       }
     })
       .then(function (dbData) {
@@ -39,11 +39,10 @@ module.exports = function (app){
             }else{
               //if the response from bcrypt was true we know our users password matched and we can now format the user data coming from the database to be sent to the font end
               var userObj = {
-                id: dbData.dataValues.id,
+                id: dbData.dataValues.user_id,
                 name: dbData.dataValues.name,
-                username: dbData.dataValues.username,
                 email: dbData.dataValues.email,
-                profilePic: dbData.dataValues.profilePic
+                picture: dbData.dataValues.picture
               }
              //we update the loggedIn key to have a true value. we can use this value on the fron end to see if the user is logged in or not.
               req.session.user.isAdmin = dbData.dataValues.isAdmin;
@@ -70,11 +69,10 @@ module.exports = function (app){
         req.body.password = hash;
           db.users.create(req.body).then(function (dbData) {
             var userObj = {
-              id: dbData.dataValues.id,
+              id: dbData.dataValues.user_id,
               name: dbData.dataValues.name,
-              username: dbData.dataValues.username,
               email: dbData.dataValues.email,
-              profilePic: dbData.dataValues.profilePic
+              profilePic: dbData.dataValues.picture
             }
             req.session.user.isAdmin = dbData.dataValues.isAdmin;
             req.session.user.loggedIn = true;
@@ -93,9 +91,8 @@ module.exports = function (app){
     req.session.user.currentUser = {
       id: null,
       name: '',
-      username: '',
       email: '',
-      profilePic: null
+      picture: null
     }
     req.session.user.loggedIn = false;
     req.session.user.isAdmin = false;
@@ -103,20 +100,19 @@ module.exports = function (app){
   })
   
   //get user info endpoint via query params
-  app.get('/api/profile/:username', function(req, res, next){
-    console.log(req.params.username);
+  app.get('/api/profile/:email', function(req, res, next){
+    console.log(req.params.email);
     db.users.findOne({
       where: {
-        username: req.params.username
+        email: req.params.email
       }
     }).then(function(dbData){
       console.log(dbData)
       var userObj = {
         id: dbData.dataValues.id,
         name: dbData.dataValues.name,
-        username: dbData.dataValues.username,
         email: dbData.dataValues.email,
-        profilePic: dbData.dataValues.profilePic
+        picture: dbData.dataValues.picture
       }
       // req.session.user.loggedIn = true;
       // req.session.user.currentUser = userObj;
@@ -124,19 +120,19 @@ module.exports = function (app){
     })
   });
   //update profile route
-  app.put('/api/update/:username', function(req, res, next){
+  app.put('/api/update/:email', function(req, res, next){
     req.session.user.currentUser = req.body
     var loggedUser = req.session.user.currentUser;
     if(true){
       db.users.update({
-        username: loggedUser.username,
         name: loggedUser.name,
         email: loggedUser.email,
-        profilePic: loggedUser.profilePic
-      }, {
+        picture: loggedUser.picture,
+        interests: {
           where: {
             username: req.params.username
           }
+        }
         }).then(function (dbData) {
           res.json(dbData.dataValues)
         })

@@ -128,12 +128,13 @@ class AddEvent extends Component {
                 </a>
               </li>
               <li className="list-inline-item">
-                <a >
+                <a>
                   <i className="fa fa-facebook"></i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a >
+
+                <a>
                   <i className="fa fa-linkedin"></i>
                 </a>
               </li>
@@ -142,7 +143,8 @@ class AddEvent extends Component {
           	<div className="col-md-4">
             <ul className="list-inline quicklinks">
               <li className="list-inline-item">
-                <a >Privacy Policy</a>
+
+                <a>Privacy Policy</a>
               </li>
               <li className="list-inline-item">
                 <a >Terms of Use</a>
