@@ -30,6 +30,7 @@ const Footer = ({children}) => (
           	<div className="col-md-4">
             <ul className="list-inline quicklinks">
               <li className="list-inline-item">
+
                 <a>Privacy Policy</a>
               </li>
               <li className="list-inline-item">

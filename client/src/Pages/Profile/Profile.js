@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import backgroundimg from "../../img/02-profile.jpg";
-
+import Footer from '../../components/Footer';
 
 class Profile extends Component {
   state = {
@@ -18,10 +18,11 @@ handleChange = (event) => {
   render() {
     return (
         <div>
-          <div className="mainNav">    
+          <div className="addProfileNav">    
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
               <div className="container">
-                <a className="navbar-brand js-scroll-trigger">Activity You</a>
+
+                <a className="navbar-brand js-scroll-trigger" href="#page-top">Socialight</a>
                 <div className="collapse navbar-collapse navbarResponsive">
                   <ul className="navbar-nav text-uppercase ml-auto">
                     <li className="nav-item">
@@ -44,7 +45,7 @@ handleChange = (event) => {
             <div className="container">
               <div className="jumbotron jumbo">
                 <div className="row">
-                <img className="backgroundimg" src={backgroundimg} alt=" " style={{height: 300, width: 1030}} />
+                <img className="backgroundimg" src={backgroundimg} alt=" " style={{height: 300, width: 1030, }} />
                   <div className="username">
                     <img src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://s3.amazonaws.com/arc-authors/washpost/e2838923-cb36-49c3-976f-8a9cc279583b.png&w=180&h=180&t=20170517a" className="rounded-circle img-fluid userpicture" alt="Cinque Terre" />
                     <div>
@@ -170,44 +171,8 @@ handleChange = (event) => {
               </div>
             </div>
           </div>
-          <footer>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-            <span className="copyright">Copyright &copy; 2018</span>
-          </div>
-          <div className="col-md-4">
-            <ul className="list-inline social-buttons">
-              <li className="list-inline-item">
-                <a>
-                  <i className="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a>
-                  <i className="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a>
-                  <i className="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          	<div className="col-md-4">
-            <ul className="list-inline quicklinks">
-              <li className="list-inline-item">
-                <a>Privacy Policy</a>
-              </li>
-              <li className="list-inline-item">
-                <a>Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+          <Footer />
+
         </div>
     );
   }

@@ -7,11 +7,11 @@ class AddEvent extends Component {
 
   render() {
     return (
-      <div>
-    <div className="mainNav">    
+    <div>
+    <div className="addProfileNav">    
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
         <div className="container">
-          <a className="navbar-brand js-scroll-trigger">Activity You</a>
+          <a className="navbar-brand js-scroll-trigger" href="/">Socialight</a>
           <div className="collapse navbar-collapse navbarResponsive">
             <ul className="navbar-nav text-uppercase ml-auto">
               <li className="nav-item">
@@ -133,6 +133,7 @@ class AddEvent extends Component {
                 </a>
               </li>
               <li className="list-inline-item">
+
                 <a>
                   <i className="fa fa-linkedin"></i>
                 </a>
@@ -142,6 +143,7 @@ class AddEvent extends Component {
           	<div className="col-md-4">
             <ul className="list-inline quicklinks">
               <li className="list-inline-item">
+
                 <a>Privacy Policy</a>
               </li>
               <li className="list-inline-item">

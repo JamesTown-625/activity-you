@@ -1,9 +1,8 @@
 import React from 'react';
-import "./navStyle.css";
-// import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // import "../../../public/index.css";
 
-const LandingNav = (props) => {
+const HomeNav = (props) => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
@@ -16,12 +15,17 @@ const LandingNav = (props) => {
        
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav text-uppercase ml-auto">
+          
             <li className="nav-item">
-              <a className="nav-link js-scroll-trigger" data-toggle="modal" data-target="/login">Login</a>
+              <a className="nav-link js-scroll-trigger" href="/addevent">Add Event</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link js-scroll-trigger" data-toggle="modal" data-target="/">Sign Up</a>
+              <a className="nav-link js-scroll-trigger" href="/">My Events</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link js-scroll-trigger" href="/profile">Profile</a>
+            </li>
+          
 
           </ul>
         </div>
@@ -32,4 +36,4 @@ const LandingNav = (props) => {
   );
 };
 
-export default LandingNav;
+export default HomeNav;
