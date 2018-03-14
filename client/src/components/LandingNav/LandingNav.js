@@ -1,6 +1,6 @@
 import React from 'react';
 import "./navStyle.css";
-import { Link, NavLink } from "react-router-dom";
+// import { Link, NavLink } from "react-router-dom";
 // import "../../../public/index.css";
 
 const LandingNav = (props) => {
