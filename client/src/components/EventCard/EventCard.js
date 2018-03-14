@@ -11,8 +11,8 @@ const EventCard = (props) => (
                 <div className="main">
                   <img alt=" " src="../../../public/img/rockconcert.png"/>
                     <div className="mask">
-                        <h2>Date</h2>
-                        <p>Title</p>
+                        <h2>{props.date}</h2>
+                        <p>{props.title}</p>
                         <a  className="info">More Info</a>
                     </div>
                 </div> 
