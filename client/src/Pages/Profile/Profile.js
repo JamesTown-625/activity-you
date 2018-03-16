@@ -27,8 +27,7 @@ handleChange = (event) => {
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
               <div className="container">
 
-                <a className="navbar-brand js-scroll-trigger" href="/
-                ">Socialight</a>
+                <a className="navbar-brand js-scroll-trigger" href="/">Socialight</a>
                 <div className="collapse navbar-collapse navbarResponsive">
                   <ul className="navbar-nav text-uppercase ml-auto">
                     <li className="nav-item">
