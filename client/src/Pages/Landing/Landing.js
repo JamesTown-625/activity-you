@@ -93,7 +93,7 @@ handleChange = (event) => {
                   </div>
                   <div className="form-group">
                     <label htmlFor="pwd">Password:</label>
-                    <input className="form-control" name="password" value={this.state.password} onChange={this.handleChange} />
+                    <input className="form-control" type= "password" name="password" value={this.state.password} onChange={this.handleChange} />
                   </div>
                   <br />
                   <button type="button" onClick={()=> {this.props.handleLogin(this.state)}} className="btn btn-warning">Log In</button>
@@ -127,7 +127,7 @@ handleChange = (event) => {
                   </div>
                   <div className="form-group">
                     <label htmlFor="pwd">Password:</label>
-                    <input className="form-control" name="password" value={this.state.password} onChange={this.handleChange}/>
+                    <input className="form-control" type ="password" name="password" value={this.state.password} onChange={this.handleChange}/>
                   </div>
                   <div className="form-group">
                     {/* Button to access locals picture files */} 
