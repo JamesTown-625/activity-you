@@ -62,6 +62,15 @@ class App extends Component {
     })
   }
 
+  userDidAddEvent = (eventData) => {
+    console.log(eventData)
+    axios.post("/api/addEvent", eventData).then((res) => {
+      window.location.href = '/home';
+      console.log(res)
+      this.checkLogin()
+    })
+  }
+
   userLogOut = () => {
     axios.get("/api/logout").then((res) => {
       console.log(res)
@@ -82,7 +91,7 @@ class App extends Component {
             <Route exact path="/profile" render={(props) => {
               return <Profile user={this.state.user} {...props} handleUpdate={this.userDidUpdate} />
             }} />
-            <Route exact path="/addevent" component={AddEvent}/>
+            <Route handleAddEvent={this.userDidAddEvent} exact path="/addevent" component={AddEvent}/>
             <Route path="/user/:username" render={(props) => {
                return <Profile {...props} />
             }} />

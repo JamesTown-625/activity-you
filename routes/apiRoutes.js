@@ -82,6 +82,25 @@ module.exports = function (app){
       });
     });
   });
+
+  app.post("/api/addEvent", function (req, res, next) {
+          db.Event.create(req.body).then(function (dbData) {
+            var eventObj = {
+              title: dbData.dataValues.title,
+              interestsId: dbData.dataValues.interest,
+              image: dbData.dataValues.picture,
+              date: dbData.dataValues.date,
+              time: dbData.dataValues.time,
+              address: dbData.dataValues.address,
+              city: dbData.dataValues.city,
+              state: dbData.dataValues.state,
+              zipcode: dbData.dataValues.zip,
+              description: dbData.dataValues.description
+            }
+            res.json(req.session.user);
+          });
+      });
+  
   //endpoint for grabbing session user object to be used accrossed entire app.
   app.get("/api/session", function(req, res, next){
     res.json(req.session.user)
