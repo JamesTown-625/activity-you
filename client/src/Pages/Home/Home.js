@@ -5,6 +5,7 @@ import CategoryHeader from '../../components/CategoryHeader';
 import Footer from '../../components/Footer';
 import Slider from 'react-slick';
 import './Home.css';
+import EventCard from '../../components/EventCard';
 
 const Home = (props) => {
 
@@ -26,10 +27,31 @@ const Home = (props) => {
       	<br/>
       	<br/>
       	<br/>
-     <CategoryHeader/>
+     <div className = "CategoryHeader">
+    <h3>Art</h3>
+    </div>
      <Carousel/>
      <br/>
-    
+     <div className = "CategoryHeader">
+      <h3>Music</h3>
+     </div>
+     <Carousel><EventCard/></Carousel>
+    <div className = "CategoryHeader">
+    <h3>Outdoor</h3>
+    </div>
+    <Carousel><EventCard/></Carousel>
+    <div className = "CategoryHeader">
+    <h3>Social</h3>
+    </div>
+    <Carousel><EventCard/></Carousel>
+    <div className = "CategoryHeader">
+    <h3>Fitness</h3>
+    </div>
+    <Carousel><EventCard/></Carousel>
+    <div className = "CategoryHeader">
+    <h3>Culture</h3>
+    </div>
+    <Carousel><EventCard/></Carousel>
      <Footer/>
     </div>
   );

@@ -3,7 +3,7 @@ import "./CategoryHeader.css";
 
 const CategoryHeader = (props) => (
 		<div className = "CategoryHeader">
-		<h3>Event</h3>
+		<h3>{props.category}</h3>
 		</div>
 		);
 

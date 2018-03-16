@@ -29,7 +29,7 @@ h1 span{
 	font-size: 14px;
     font-family: Georgia, serif;
     font-style: italic;
-	color:#b2891b;
+	color:#6e849e;
 	padding-top:10px;
 }
 /* Header Style */
@@ -86,7 +86,7 @@ h1 span{
 }
 .more ul li.selected a,
 .more ul li.selected a:hover{
-	background:#b2891b;
+	background:#6e849e;
 	color:#fff;
 	text-shadow:none;
 }
@@ -116,7 +116,7 @@ h1 span{
    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
    filter: alpha(opacity=0);
    opacity: 0;
-   background-color: rgba(219,127,8, 0.7);
+   background-color: rgb(110, 132, 158);
    -webkit-transition: all 0.4s ease-in-out;
    -moz-transition: all 0.4s ease-in-out;
    -o-transition: all 0.4s ease-in-out;
@@ -207,7 +207,7 @@ h1 span{
    height: 200px;
    margin: 10px;
    float: left;
-   border: 5px solid #fff;
+   border: 2px solid #fff;
    overflow: hidden;
    position: relative;
    text-align: center;
@@ -264,3 +264,9 @@ h1 span{
    -moz-box-shadow: 0 0 5px #000;
    box-shadow: 0 0 5px #000;
 }
+
+
+.modal-backdrop {
+  z-index: -1;
+}
+

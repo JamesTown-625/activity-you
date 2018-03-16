@@ -13,7 +13,7 @@ class Profile extends Component {
           <div className="mainNav">    
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
               <div className="container">
-                <a className="navbar-brand js-scroll-trigger" href="#page-top">Activity You</a>
+                <a className="navbar-brand js-scroll-trigger" href="#page-top">Socialight</a>
                 <div className="collapse navbar-collapse navbarResponsive">
                   <ul className="navbar-nav text-uppercase ml-auto">
                     <li className="nav-item">
