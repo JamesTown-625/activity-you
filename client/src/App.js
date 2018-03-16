@@ -39,6 +39,7 @@ class App extends Component {
   userDidLogin = (userData) => {
     console.log(userData)
     axios.post("/api/login", userData).then((res) => {
+      window.location.href = '/home';
       console.log(res)
       this.checkLogin()
     })
@@ -55,7 +56,7 @@ class App extends Component {
 
   userDidUpdate = (userData) => {
     console.log(userData)
-    axios.post("/api/update", userData).then((res) => {
+    axios.put(`/api/update/${userData.email}`, userData).then((res) => {
       console.log(res)
       this.checkLogin()
     })
@@ -79,12 +80,9 @@ class App extends Component {
             <Landing handleLogin={this.userDidLogin} handleSignup={this.userDidSignup} />
             )} />
             <Route exact path="/profile" render={(props) => {
-              return <Profile {...props} />
+              return <Profile user={this.state.user} {...props} handleUpdate={this.userDidUpdate} />
             }} />
-            <Profile  handleUpdate={this.userDidUpdate} />
-            )} />
             <Route exact path="/addevent" component={AddEvent}/>
-            <Route exact path="/profile" component={Profile}/>
             <Route path="/user/:username" render={(props) => {
                return <Profile {...props} />
             }} />
@@ -98,10 +96,6 @@ class App extends Component {
             <Route exact path="/signup" render={() => (
               <Signup handleSignup={this.userDidSignup} />
             )} />
-            <Route exact path="/logout" render={() => (
-              <button onClick={this.userLogOut}> logOut</button>
-            )} />
-
           </Switch>
         </div>
       </Router>

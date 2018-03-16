@@ -1,0 +1,12 @@
+insert into interests (name) values ("outdoors");
+insert into interests (name) values ("art");
+insert into interests (name) values ("music");
+insert into interests (name) values ("fitness");
+insert into interests (name) values ("gamesScifi");
+insert into interests (name) values ("education");
+insert into interests (name) values ("pets");
+insert into interests (name) values ("culture");
+insert into interests (name) values ("business");
+insert into interests (name) values ("family");
+insert into interests (name) values ("social");
+insert into interests (name) values ("foodDrink");

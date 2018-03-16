@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import backgroundimg from "../../img/02-profile.jpg";
 import Footer from '../../components/Footer';
 
+var imgStyle = {
+  width: "250px",
+  height: "250px"
+}
+
 class Profile extends Component {
   state = {
     fullName: "",
@@ -22,7 +27,8 @@ handleChange = (event) => {
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top mainNav">
               <div className="container">
 
-                <a className="navbar-brand js-scroll-trigger" href="#page-top">Socialight</a>
+                <a className="navbar-brand js-scroll-trigger" href="/
+                ">Socialight</a>
                 <div className="collapse navbar-collapse navbarResponsive">
                   <ul className="navbar-nav text-uppercase ml-auto">
                     <li className="nav-item">
@@ -47,10 +53,10 @@ handleChange = (event) => {
                 <div className="row">
                 <img className="backgroundimg" src={backgroundimg} alt=" " style={{height: 300, width: 1030, }} />
                   <div className="username">
-                    <img src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://s3.amazonaws.com/arc-authors/washpost/e2838923-cb36-49c3-976f-8a9cc279583b.png&w=180&h=180&t=20170517a" className="rounded-circle img-fluid userpicture" alt="Cinque Terre" />
+                    <img src={this.props.user.currentUser.picture} style={imgStyle}className="rounded-circle img-fluid userpicture" alt="Cinque Terre" />
                     <div>
-                      <h4>{this.state.fullName}</h4>
-                      <h4>{this.state.email}</h4>
+                    <h4>{this.props.user.currentUser.fullName}</h4>
+                    <h4>{this.props.user.currentUser.email}</h4>
                       <button data-toggle="modal" data-target=".myModal" title="Edit">Update Profile</button>
                     </div> 
                     {/* The Modal */}

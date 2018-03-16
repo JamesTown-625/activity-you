@@ -88,8 +88,8 @@ handleChange = (event) => {
               <div className="modal-body">
                 <form action="/action_page.php">
                   <div className="form-group">
-                    <label htmlFor="name">Name:</label>
-                    <input className="form-control" name="fullName" value={this.state.fullName} onChange={this.handleChange} />
+                    <label htmlFor="name">Email:</label>
+                    <input className="form-control" name="email" value={this.state.email} onChange={this.handleChange} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="pwd">Password:</label>

@@ -107,8 +107,8 @@ class AddEvent extends Component {
               <button type="submit" className="btn btn-warning">Submit Event</button>
             </form>
           </div>
+          <Footer />
         </div>
-      <Footer />
     );
   }
 }

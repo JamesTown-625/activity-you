@@ -24,15 +24,15 @@ module.exports = function (sequelize, DataTypes) {
 
   //there are no assosiations yet so i commented this out
 
-  // Users.associate = function (models) {
-  //   // We're saying that a Users should belong to an Author
-  //   // A Users can't be created without an Author due to the foreign key constraint
-  //   Users.belongsTo(models.<YOUR MODEL NAME>, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  Users.associate = function (models) {
+    // We're saying that a Users should belong to an Author
+    // A Users can't be created without an Author due to the foreign key constraint
+    Users.belongsToMany(models.Interests, {
+      foreignKey: 'userId',
+      through: models.userInterests,        
+      // allowNull: false
+    });
+  };
 
   return Users;
 };
