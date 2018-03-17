@@ -62,9 +62,9 @@ class App extends Component {
     })
   }
 
-  userDidAddEvent = (eventData) => {
-    console.log(eventData)
-    axios.post("/api/addEvent", eventData).then((res) => {
+  userDidAddEvent = (userData) => {
+    console.log(userData)
+    axios.post("/api/addEvent", userData).then((res) => {
       window.location.href = '/home';
       console.log(res)
       this.checkLogin()
@@ -91,7 +91,7 @@ class App extends Component {
             <Route exact path="/profile" render={(props) => {
               return <Profile user={this.state.user} {...props} handleUpdate={this.userDidUpdate} />
             }} />
-            <Route handleAddEvent={this.userDidAddEvent} exact path="/addevent" component={AddEvent}/>
+            <Route handleAddEvent={this.userDidAddEvent}  path="/addEvent" component={AddEvent}/>
             <Route path="/user/:username" render={(props) => {
                return <Profile {...props} />
             }} />

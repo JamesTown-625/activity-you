@@ -83,22 +83,26 @@ module.exports = function (app){
     });
   });
 
-  app.post("/api/addEvent", function (req, res, next) {
-          db.Event.create(req.body).then(function (dbData) {
-            var eventObj = {
-              title: dbData.dataValues.title,
-              interestsId: dbData.dataValues.interest,
-              image: dbData.dataValues.picture,
-              date: dbData.dataValues.date,
-              time: dbData.dataValues.time,
-              address: dbData.dataValues.address,
-              city: dbData.dataValues.city,
-              state: dbData.dataValues.state,
-              zipcode: dbData.dataValues.zip,
-              description: dbData.dataValues.description
-            }
-            res.json(req.session.user);
-          });
+  app.post("/api/addEvent", function (req, res) {
+          db.Event.create({
+              title: req.body.title,
+              interestsId: req.body.interest,
+              image: req.body.picture,
+              date: req.body.date,
+              time: req.body.time,
+              address: req.body.address,
+              city: req.body.city,
+              state: req.body.state,
+              zipcode: req.body.zip,
+              description: req.body.description
+            }).then(function(dbPost){
+              res.json(dbPost)
+            })
+          //   req.session.user.isAdmin = dbData.dataValues.isAdmin;
+          //   req.session.user.loggedIn = true;
+          //   req.session.user.currentUser = userObj;
+          //   res.json(req.session.user);
+          // });
       });
   
   //endpoint for grabbing session user object to be used accrossed entire app.

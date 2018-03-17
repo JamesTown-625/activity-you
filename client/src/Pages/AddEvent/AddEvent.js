@@ -31,6 +31,7 @@ class AddEvent extends Component {
   };
 
   handleChange = (event) => {
+    event.pervent.default;
     const {name, value} = event.target;
     this.setState({[name]: value})
   }
@@ -64,7 +65,7 @@ class AddEvent extends Component {
         <div className="container">
           <div className="jumbotron jumbo">
             <h1>Add an Event</h1>
-            <form action="/action_page.php addEvent">
+            <form action="/home">
               <div className="form-group">
                 <label htmlFor="title">Event Title:</label>
                 <input type="title" placeholder="Event Title" className="form-control" name="title" value={this.state.title} onChange={this.handleChange} />
